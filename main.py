@@ -125,7 +125,11 @@ def render_results(data):
               "Form": r.get("form", ""),
             })
           if rows:
-            st.table(rows)
+            df = st.dataframe(
+              rows,
+              use_container_width=True,
+              hide_index=True
+            )
   else:
     st.json(data)
 
